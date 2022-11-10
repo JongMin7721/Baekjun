@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 11720번
 {
     int n, sum = 0;
     scanf("%d ", &n);

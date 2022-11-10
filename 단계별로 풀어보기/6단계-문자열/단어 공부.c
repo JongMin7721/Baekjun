@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int main(void)
+int main(void) // 1157번
 {
     char *str = (char *)malloc(sizeof(char) * 1000000);
     int cnt[26] = {0}, max = 0, num, n;

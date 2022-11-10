@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 10952번
 {
     int a, b;
 

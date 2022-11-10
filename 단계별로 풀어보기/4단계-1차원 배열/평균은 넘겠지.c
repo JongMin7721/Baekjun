@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int main(void) // 4344번
 {
     int num, cnt, *total_cnt, final_cnt;
     float avg, *total_score;

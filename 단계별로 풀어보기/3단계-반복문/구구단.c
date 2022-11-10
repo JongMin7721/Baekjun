@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 2739번
 {
     int a, i;
     scanf("%d", &a);

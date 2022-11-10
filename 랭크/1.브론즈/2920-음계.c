@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 2920번
 {
     int a[8], check = 0;
     for (int i = 0; i < 8; i++)

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 10807번
 {
     int N, v, num[100], total = 0;
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void)//2742번
 {
     int n;
 

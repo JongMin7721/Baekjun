@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #define SWAP(X, Y, T) T = X, X = Y, Y = T
 
-int main(void)
+int main(void) // 2908번
 {
     char a1[4], a2[4], t;
     int n1, n2;

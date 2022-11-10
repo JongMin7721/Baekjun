@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 1065번
 {
     int n, cnt = 0;
 

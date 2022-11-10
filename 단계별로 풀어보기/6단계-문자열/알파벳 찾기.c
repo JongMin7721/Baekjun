@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 10809번
 {
     int alpha[26] = {0};
     char word[100];

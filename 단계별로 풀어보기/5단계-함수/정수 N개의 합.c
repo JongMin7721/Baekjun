@@ -16,7 +16,7 @@ int main(void)
     return 0;
 }
 
-long long sum(int *a, int n)
+long long sum(int *a, int n) // 15596번
 {
     long long ans = 0;
     for (int i = 0; i < n; i++)

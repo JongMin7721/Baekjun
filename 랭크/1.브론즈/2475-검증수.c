@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void)//2475번
 {
     int n[5], sum = 0;
 

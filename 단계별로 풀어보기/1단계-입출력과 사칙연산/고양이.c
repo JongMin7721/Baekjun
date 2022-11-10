@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 10171번
 {
     printf("\\    /\\\n )  ( ')\n(  /  )\n \\(__)|");
 

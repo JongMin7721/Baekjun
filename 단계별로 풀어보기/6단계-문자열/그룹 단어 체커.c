@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 1316번
 {
     int n, m, final = 0;
 

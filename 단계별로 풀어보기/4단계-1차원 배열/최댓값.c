@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 2562번
 {
     int a, max = -1, max_index;
 

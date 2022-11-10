@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int main(void) // 1003번
 {
     int num, a, zero[42], one[42];
     ;

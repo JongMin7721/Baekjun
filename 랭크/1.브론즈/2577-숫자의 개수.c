@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 2577번
 {
     int num, sum = 1, n[10] = {0}, m;
 

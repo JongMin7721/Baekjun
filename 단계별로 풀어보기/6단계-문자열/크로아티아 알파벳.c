@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 2941번
 {
     char *word = (char *)malloc(sizeof(char) * 102);
     int alpha[34] = {0};

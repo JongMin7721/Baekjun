@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int main(void) // 11022번
 {
     int a, b, c;
 

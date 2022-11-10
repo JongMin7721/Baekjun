@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 1546번
 {
     int num;
     float score[1000], total = 0, max_score = 0;

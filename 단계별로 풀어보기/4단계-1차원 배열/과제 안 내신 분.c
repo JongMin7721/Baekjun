@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 5597번
 {
     int a[30] = {0}, b;
 

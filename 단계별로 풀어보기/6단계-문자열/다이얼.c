@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 5622번
 {
     char word[16];
     int n, sum = 0;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 2675번
 {
     int n, r;
     char c[20];

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 4673번
 {
     int n[10000] = {0}, sum;
 

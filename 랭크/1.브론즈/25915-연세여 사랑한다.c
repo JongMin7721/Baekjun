@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-int main(void)
+int main(void) // 25915번
 {
     char n, *password = {"ILOVEYONSEI"};
     int move = 0, cnt = 0;

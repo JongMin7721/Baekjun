@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void)//2566번
 {
     int arr[9][9], max = 0, max_i = 0, max_j = 0;
 

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 7287번
 {
     printf("50\nwjm7721\n");
 

@@ -12,7 +12,7 @@ ll crossProduct(Vector a, Vector b);
 int direction(Vector a, Vector b, Vector c);
 int lineSegIntersect(Vector *p);
 
-int main(void)
+int main(void) // 17387번
 {
     Vector p[4];
 

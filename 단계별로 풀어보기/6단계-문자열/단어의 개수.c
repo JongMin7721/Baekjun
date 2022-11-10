@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
+int main(void) // 1152번
 {
     char a[1000000], *tk;
     int stack = 0;

@@ -47,7 +47,7 @@
     return 0;
 }*/
 
-int main(void) //더 짧고 쉬운 버전   (다른 사람 풀이)
+int main(void) //더 짧고 쉬운 버전   (다른 사람 풀이)           //8958번
 {
     int n, score, stack;
     char c[81] = {0};

@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 10818번
 {
     int a, b, max = -1000000, min = 1000000;
 
