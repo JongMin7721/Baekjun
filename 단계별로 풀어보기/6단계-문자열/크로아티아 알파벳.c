@@ -108,4 +108,8 @@ int main(void) // 2941번
     }
 
     printf("%d\n", total);
+
+    free(word);
+
+    return 0;
 }

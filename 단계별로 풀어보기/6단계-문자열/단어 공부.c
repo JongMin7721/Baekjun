@@ -41,5 +41,7 @@ int main(void) // 1157번
 
     printf("%c\n", (char)max + 'A');
 
+    free(str);
+
     return 0;
 }

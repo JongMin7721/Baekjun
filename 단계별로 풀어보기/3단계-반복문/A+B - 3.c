@@ -20,5 +20,7 @@ int main(void) // 10950번
         printf("%d\n", arr[i]);
     }
 
+    free(arr);
+
     return 0;
 }

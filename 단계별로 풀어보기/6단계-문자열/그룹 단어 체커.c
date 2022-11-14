@@ -44,5 +44,11 @@ int main(void) // 1316번
 
     printf("%d", n - final);
 
+    for (int i = 0; i < n; i++)
+    {
+        free(word[i]);
+    }
+    free(word);
+
     return 0;
 }

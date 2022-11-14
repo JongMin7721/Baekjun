@@ -22,5 +22,8 @@ int main(void) // 11022번
         printf("Case #%d: %d + %d = %d\n", i + 1, arr1[i], arr2[i], arr1[i] + arr2[i]);
     }
 
+    free(arr1);
+    free(arr2);
+
     return 0;
 }

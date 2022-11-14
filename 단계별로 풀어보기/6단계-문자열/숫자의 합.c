@@ -16,5 +16,7 @@ int main(void) // 11720번
     }
     printf("%d", sum);
 
+    free(num);
+
     return 0;
 }

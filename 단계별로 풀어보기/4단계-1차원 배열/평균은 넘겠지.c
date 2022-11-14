@@ -35,5 +35,12 @@ int main(void) // 4344번
         printf("%.3f%%\n", avg * 100);
     }
 
+    free(total_cnt);
+    for (int i = 0; i < cnt; i++)
+    {
+        free(stu[i]);
+    }
+    free(stu);
+
     return 0;
 }
