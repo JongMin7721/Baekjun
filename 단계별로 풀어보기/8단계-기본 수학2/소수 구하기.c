@@ -3,7 +3,8 @@
 void eratos(int n);
 
 int nums[1000001];
-int main(void)
+
+int main(void) // 1929번
 {
     int n, m;
 
