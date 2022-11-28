@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 2587번
 {
     int n[5], avg = 0, min, index, temp;
 

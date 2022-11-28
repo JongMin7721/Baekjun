@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main(void)
+int main(void) // 2750번
 {
     int ar[2001] = {0}, n, m;
 
