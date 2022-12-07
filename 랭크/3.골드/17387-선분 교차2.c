@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define min(x, y) x >= y ? y : x
-#define max(x, y) x >= y ? x : y
+#define MAX(a, b) (((a) >= (b)) ? (a) : (b))
+#define MIN(a, b) (((a) <= (b)) ? (a) : (b))
 
 typedef struct
 {
@@ -50,9 +50,8 @@ int direction(Vector a, Vector b, Vector c)
 
 int onSegment(Vector a, Vector b, Vector c)
 {
-    if (c.x >= min(a.x, b.x) && c.x <= max(a.x, b.x) && c.y >= min(a.y, b.y) && c.y <= max(a.y, b.y))
+    if ((c.x >= MIN(a.x, b.x)) && (c.x <= MAX(a.x, b.x)) && (c.y >= MIN(a.y, b.y)) && (c.y <= MAX(a.y, b.y)))
     {
-        printf("on");
         return 1;
     }
 
@@ -70,22 +69,18 @@ int lineSegIntersect(Vector *p)
         return 1;
     else if (d1 == 0 && onSegment(p[3], p[4], p[1]))
     {
-        printf("1");
         return 1;
     }
     else if (d2 == 0 && onSegment(p[3], p[4], p[2]))
     {
-        printf("2");
         return 1;
     }
     else if (d3 == 0 && onSegment(p[1], p[2], p[3]))
     {
-        printf("3");
         return 1;
     }
     else if (d4 == 0 && onSegment(p[1], p[2], p[4]))
     {
-        printf("4");
         return 1;
     }
 
