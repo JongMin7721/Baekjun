@@ -7,7 +7,7 @@ int compare(const void *a, const void *b);
 int main(void)
 {
     int n, max_index = 0, first_max_index = 1000000, second_max_index = 1000000, cnt[8001] = {0}, max_cnt = 1;
-    double sum = 0, r;
+    double sum = 0;
 
     scanf("%d", &n);
 
