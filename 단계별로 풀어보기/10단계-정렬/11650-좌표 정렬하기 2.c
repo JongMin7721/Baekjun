@@ -31,21 +31,21 @@ int main(void)
 
 int compare(const void *first, const void *second)
 {
-    if (((coordinate *)first)->x > ((coordinate *)second)->x)
+    if (((coordinate *)first)->y > ((coordinate *)second)->y)
     {
         return 1;
     }
-    else if (((coordinate *)first)->x < ((coordinate *)second)->x)
+    else if (((coordinate *)first)->y < ((coordinate *)second)->y)
     {
         return -1;
     }
     else
     {
-        if (((coordinate *)first)->y > ((coordinate *)second)->y)
+        if (((coordinate *)first)->x > ((coordinate *)second)->x)
         {
             return 1;
         }
-        else if (((coordinate *)first)->y < ((coordinate *)second)->y)
+        else if (((coordinate *)first)->x < ((coordinate *)second)->x)
         {
             return -1;
         }
