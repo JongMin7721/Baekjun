@@ -2,19 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main(void) // 문자열 이용하여 풀기 // 다음에 풀기
+int main(void)
 {
-    char bignum[1001], smallnum[1001], res[1001];
-    scanf("%s %s", &bignum, &smallnum);
-    int l = strlen(smallnum), ll = strlen(bignum), lnl = ll - l;
+    char money[1001], count[1001], result[1001];
+    int mlen, len;
 
-    for (int i = 0; i < lnl; i++)
+    scanf("%s %s", &money, &count);
+
+    mlen = strlen(money);
+    len = strlen(count);
+
+    for (int i = 0; i < mlen - len + 1; i++)
     {
-        /* code */
+        for (int j = 0; j < len; j++)
+        {
+            money[i + j] == count[j] ? continue : 1;
+        }
     }
-
-    printf("%d %s\n", atoi(bignum) - atoi(smallnum), smallnum);
-    printf("%s", bignum);
-
-    return 0;
 }
