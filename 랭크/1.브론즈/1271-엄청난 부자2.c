@@ -12,6 +12,12 @@ int main(void)
 
     scanf("%s %s", &money, &count);
 
+    if (!strcmp(money, "0") || !strcmp(count, "0"))
+    {
+        printf("%s\n%s\n", money, count);
+        return -1;
+    }
+
     mlen = strlen(money);
     len = strlen(count);
 
