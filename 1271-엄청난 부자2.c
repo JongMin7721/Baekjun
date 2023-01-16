@@ -24,20 +24,19 @@ int main(void)
     for (dd = 0; result[dd] == '0'; dd++)
         ;
 
-    printf("%s\n", result + dd);
+    if (dd == strlen(result))
+        printf("0\n");
+    else
+        printf("%s\n", result + dd);
 
     int cc;
     for (cc = 0; money[cc] == '0'; cc++)
         ;
 
     if (cc == mlen)
-    {
         printf("0\n");
-    }
     else
-    {
         printf("%s\n", money + cc);
-    }
 }
 
 int CoN(char money[1001], char count[1001], int len, int i)
