@@ -1,14 +1,17 @@
 #include <stdio.h>
 #include <string.h>
 
-void push(int arr[10000], int val, int *index);
-int pop(int arr[10000], int *index);
-int empty(int index);
-int top(int arr[10000], int index);
+void push(int val);
+int pop();
+int empty();
+int top();
+
+int arr[10000];
+int ind = -1;
 
 int main(void)
 {
-    int n, arr[10000], val, index = -1;
+    int n, val;
     char func[8];
 
     scanf("%d", &n);
@@ -25,49 +28,49 @@ int main(void)
                 continue;
             }
 
-            push(arr, val, &index);
+            push(val);
         }
         else if (!strcmp(func, "pop"))
         {
-            printf("%d\n", pop(arr, &index));
+            printf("%d\n", pop());
         }
         else if (!strcmp(func, "size"))
         {
-            printf("%d\n", index + 1);
+            printf("%d\n", ind + 1);
         }
         else if (!strcmp(func, "empty"))
         {
-            empty(index);
+            empty();
         }
         else if (!strcmp(func, "top"))
         {
-            top(arr, index);
+            top();
         }
     }
 }
 
-void push(int arr[10000], int val, int *index)
+void push(int val)
 {
-    arr[++(*index)] = val;
+    arr[++(ind)] = val;
 
     return;
 }
 
-int pop(int arr[10000], int *index)
+int pop()
 {
-    if (*index == -1)
+    if (ind == -1)
     {
         return -1;
     }
     else
     {
-        return arr[(*index)--];
+        return arr[(ind)--];
     }
 }
 
-int empty(int index)
+int empty()
 {
-    if (index == -1)
+    if (ind == -1)
     {
         printf("1\n");
     }
@@ -77,14 +80,14 @@ int empty(int index)
     }
 }
 
-int top(int arr[10000], int index)
+int top()
 {
-    if (index == -1)
+    if (ind == -1)
     {
         printf("-1\n");
     }
     else
     {
-        printf("%d\n", arr[index]);
+        printf("%d\n", arr[ind]);
     }
 }
