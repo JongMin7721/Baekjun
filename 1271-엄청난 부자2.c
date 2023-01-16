@@ -2,6 +2,44 @@
 #include <stdlib.h>
 #include <string.h>
 
+int CoN(char money[1001], char count[1001], int len, int i);
+void division(char money[1001], char count[1001], char result[1001], int len, int i);
+
+int main(void)
+{
+    char money[1001], count[1001], result[1001] = {0};
+    int mlen, len;
+
+    scanf("%s %s", &money, &count);
+
+    mlen = strlen(money);
+    len = strlen(count);
+
+    for (int i = 0; i < mlen - len + 1; i++)
+    {
+        division(money, count, result, len, i);
+    }
+
+    int dd;
+    for (dd = 0; result[dd] == '0'; dd++)
+        ;
+
+    printf("%s\n", result + dd);
+
+    int cc;
+    for (cc = 0; money[cc] == '0'; cc++)
+        ;
+
+    if (cc == mlen)
+    {
+        printf("0\n");
+    }
+    else
+    {
+        printf("%s\n", money + cc);
+    }
+}
+
 int CoN(char money[1001], char count[1001], int len, int i)
 {
     return strncmp(money + i, count, len);
@@ -50,41 +88,5 @@ void division(char money[1001], char count[1001], char result[1001], int len, in
 
             return;
         }
-    }
-}
-
-int main(void)
-{
-    char money[1001], count[1001], result[1001] = {0};
-    int mlen, len;
-
-    scanf("%s %s", &money, &count);
-
-    mlen = strlen(money);
-    len = strlen(count);
-
-    for (int i = 0; i < mlen - len + 1; i++)
-    {
-        division(money, count, result, len, i);
-        printf("%s\n%c\t%c\n%s\n", money, money[i], money[i + 1], result);
-    }
-
-    int dd;
-    for (dd = 0; result[dd] == '0'; dd++)
-        ;
-
-    printf("%s\n", result + dd);
-
-    int cc;
-    for (cc = 0; money[cc] == '0'; cc++)
-        ;
-
-    if (cc == mlen)
-    {
-        printf("0\n");
-    }
-    else
-    {
-        printf("%s\n", money + cc);
     }
 }
