@@ -3,7 +3,6 @@
 
 void push(int arr[10000], int val, int *index);
 int pop(int arr[10000], int *index);
-int size();
 int empty(int index);
 int top(int arr[10000], int index);
 
