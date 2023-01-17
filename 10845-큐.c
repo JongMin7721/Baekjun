@@ -74,12 +74,19 @@ int pop()
 
 int size()
 {
-    return r - f;
+    if (r >= f)
+    {
+        return r - f;
+    }
+    else
+    {
+        return f + r + 2 - MAX_SIZE_QUEUE;
+    }
 }
 
 int empty()
 {
-    return r - f == 0;
+    return r - f % MAX_SIZE_QUEUE == 0;
 }
 
 int front()
@@ -89,7 +96,7 @@ int front()
         return -1;
     }
 
-    return arr[f + 1];
+    return arr[(f + 1) % MAX_SIZE_QUEUE];
 }
 
 int back()
