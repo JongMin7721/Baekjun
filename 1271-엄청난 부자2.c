@@ -32,6 +32,21 @@ int main(void)
     mlen = strlen(money);
     len = strlen(count);
 
+    for (int i = 0; i < mlen; i++)
+    {
+        if (!(money[i] >= '0') || !(money[i] <= '9'))
+        {
+            return -1;
+        }
+    }
+    for (int i = 0; i < len; i++)
+    {
+        if (!(count[i] >= '0') || !(count[i] <= '9'))
+        {
+            return -1;
+        }
+    }
+
     for (int i = 0; i < mlen - len + 1; i++)
     {
         division(money, count, result, len, i);

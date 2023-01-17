@@ -56,6 +56,12 @@ int main(void)
 
 void push(int num)
 {
+    if (r + 1 == f)
+    {
+        printf("No More Array!\n");
+        return;
+    }
+
     r = ++r % MAX_SIZE_QUEUE;
     arr[r] = num;
     return;
