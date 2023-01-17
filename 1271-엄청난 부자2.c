@@ -2,19 +2,30 @@
 #include <stdlib.h>
 #include <string.h>
 
-int CoN(char money[1001], char count[1001], int len, int i);
-void division(char money[1001], char count[1001], char result[1001], int len, int i);
+int CoN(char money[1002], char count[1002], int len, int i);
+void division(char money[1002], char count[1002], char result[1002], int len, int i);
 
 int main(void)
 {
-    char money[1001], count[1001], result[1001] = {0};
+    char money[1002], count[1002], result[1002] = {0};
     int mlen, len;
 
     scanf("%s %s", &money, &count);
 
-    if (!strcmp(money, "0") || !strcmp(count, "0"))
+    if (!strcmp(count, "0"))
     {
-        printf("%s\n%s\n", money, count);
+        return -1;
+    }
+
+    if (strlen(money) == strlen(count))
+    {
+        if (strcmp(money, count) < 0)
+        {
+            return -1;
+        }
+    }
+    else if (strlen(money) < strlen(count))
+    {
         return -1;
     }
 
@@ -43,14 +54,16 @@ int main(void)
         printf("0\n");
     else
         printf("%s\n", money + cc);
+
+    return 0;
 }
 
-int CoN(char money[1001], char count[1001], int len, int i)
+int CoN(char money[1002], char count[1002], int len, int i)
 {
     return strncmp(money + i, count, len);
 }
 
-void division(char money[1001], char count[1001], char result[1001], int len, int i)
+void division(char money[1002], char count[1002], char result[1002], int len, int i)
 {
     int check = CoN(money, count, len, i), num, sum = 0;
 

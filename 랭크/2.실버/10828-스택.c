@@ -47,6 +47,8 @@ int main(void)
             top();
         }
     }
+
+    return 0;
 }
 
 void push(int val)
