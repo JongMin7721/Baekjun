@@ -56,9 +56,8 @@ int main(void)
 
 void push(int num)
 {
-    if (r + 1 == f)
+    if ((r + 1) % MAX_SIZE_QUEUE == f)
     {
-        printf("No More Array!\n");
         return;
     }
 
