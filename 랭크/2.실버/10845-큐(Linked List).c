@@ -11,6 +11,7 @@ typedef struct Node
 typedef struct
 {
     Node *front, *rear;
+    int count;
 } Queue;
 
 void init(Queue *q);
@@ -26,6 +27,8 @@ int main(void)
     Queue que;
     int n, key;
     char m[8];
+
+    init(&que);
 
     scanf("%d", &n);
 
@@ -59,6 +62,8 @@ int main(void)
             printf("%d\n", back(&que));
         }
     }
+
+    return 0;
 }
 
 int pop(Queue *q)
@@ -80,7 +85,9 @@ int pop(Queue *q)
         q->rear = NULL;
     }
 
+    q->count--;
     free(ptr);
+
     return key;
 }
 
@@ -93,35 +100,32 @@ void push(Queue *q, int key)
     if (isEmpty(q))
     {
         q->front = newnode;
-        q->rear = newnode;
     }
     else
     {
         q->rear->next = newnode;
-        q->rear = newnode;
     }
+
+    q->rear = newnode;
+    q->count++;
+
+    return;
 }
 
 void init(Queue *q)
 {
     q->front = q->rear = NULL;
+    q->count = 0;
 }
 
 int isEmpty(Queue *q)
 {
-    return (q->front == NULL);
+    return q->count == 0;
 }
 
 int size(Queue *q)
 {
-    Node *ptr;
-    int cnt = 0;
-    for (ptr = q->front; ptr != NULL; ptr = ptr->next)
-    {
-        cnt++;
-    }
-
-    return cnt;
+    return q->count;
 }
 
 int front(Queue *q)
