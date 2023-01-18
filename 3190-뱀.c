@@ -11,7 +11,6 @@ typedef struct Snake
 typedef struct
 {
     Snake *haed, *tail;
-    int time;
 } Deque;
 
 int arr[100][100]; // 0:빈칸 1:뱀 2:사과
@@ -150,7 +149,6 @@ void init(Deque *d)
 
     d->haed = newsnake;
     d->tail = newsnake;
-    d->time = 0;
 }
 
 void gosanke(Deque *d, int x, int y)
@@ -164,7 +162,6 @@ void gosanke(Deque *d, int x, int y)
 
     d->haed->link = newsnake;
     d->haed = newsnake;
-    d->time++;
 
     return;
 }
