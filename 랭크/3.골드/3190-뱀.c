@@ -138,6 +138,7 @@ int main(void)
         // printf("n_t:%d\ni:%d ip:%d\nj:%d jp:%d\nt_n:%d rl:%c\n", now_time, i, ip, j, jp, time[time_num], order[time_num]);
         // p(size);             //확인용
     }
+    return 0;
 }
 
 void init(Deque *d)
