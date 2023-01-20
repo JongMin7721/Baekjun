@@ -6,7 +6,7 @@ int arr2[1000000];
 
 int static compare(const void *first, const void *second);
 
-int main(void)
+int main(void) // 시간초과
 {
     int n, cnt;
     scanf("%d", &n);
