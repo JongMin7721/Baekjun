@@ -8,7 +8,7 @@ int static compare(const void *first, const void *second);
 
 int main(void) // 시간초과
 {
-    int n, cnt;
+    int n;
     scanf("%d", &n);
 
     for (int i = 0; i < n; i++)
@@ -19,22 +19,35 @@ int main(void) // 시간초과
 
     qsort(arr, n, sizeof(int), compare);
 
+    // 중복값 제거
+    int nn = 1;
     for (int i = 0; i < n; i++)
     {
-        cnt = 0;
-
-        for (int j = 0; j < n; j++)
+        if (arr[i] != arr[nn - 1])
         {
-            if (arr[j] == arr2[i])
-            {
-                printf("%d ", cnt);
-                break;
-            }
-            if (arr[j] != arr[j + 1])
-            {
-                cnt++;
-            }
+            arr[nn++] = arr[i];
         }
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        int start = 0, end = nn, mid = (start + end) / 2;
+
+        while (arr2[i] != arr[mid])
+        {
+            if (arr2[i] > arr[mid])
+            {
+                start = mid;
+            }
+            else if (arr2[i] < arr[mid])
+            {
+                end = mid;
+            }
+
+            mid = (start + end) / 2;
+        }
+
+        printf("%d ", mid);
     }
 
     return 0;
