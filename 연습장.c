@@ -1,41 +1,26 @@
-#include <stdio.h>
-int main()
-{
-    int h, m, H, M;
-    scanf("%d %d\n", &h, &m);
-    scanf("%d", &M);
-    if (0 <= m && m <= 59)
-    {
+#include <stdio.h> 
+#include <string.h>
 
-        if (0 <= h && h < 23)
-        {
-            if ((m + M) < 60)
-            {
-                printf("%d %d", h, m + M);
-            }
-            else if ((m + M) >= 60)
-            {
+int main() {
+	while(1)
+	{
+		char find, sen[251] = { 0 };
+		scanf("%c",&find);
+		if (find == '#')
+			return 0;
 
-                H = (m + M) / 60;
-                if ((h + H) >= 24)
-                {
-                    h = h - 24;
-                }
-                printf("%d %d", h + H, (m + M) % 60);
-            }
-        }
-        else if (h == 23)
-        {
-            if ((m + M) < 60)
-            {
-                printf("%d %d", h, m + M);
-            }
-            else if ((m + M) >= 60)
-            {
-                H = (m + M) / 60;
-                h = h + H - 24;
-                printf("%d %d", h, (m + M) % 60);
-            }
-        }
-    }
+		fgets(sen, 251, stdin);
+		int len = strlen(sen);
+		int ans = 0;
+		for (int i = 0; i < len; i++)
+		{
+			if ('a' <= find && find <= 'z')
+			{
+				if (sen[i] == find || sen[i] == find - 32)
+					ans++;
+			}
+		}
+		printf("%c %d\n", find, ans);
+	}
+
 }

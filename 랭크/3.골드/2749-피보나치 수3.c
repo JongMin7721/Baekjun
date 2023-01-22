@@ -38,4 +38,6 @@ int main(void)
     }
 
     printf("%d\n", arr[n % 3]);
+
+    return 0;
 }
