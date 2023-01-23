@@ -1,26 +1,23 @@
-#include <stdio.h> 
-#include <string.h>
+#include <stdio.h>
 
-int main() {
-	while(1)
-	{
-		char find, sen[251] = { 0 };
-		scanf("%c",&find);
-		if (find == '#')
-			return 0;
+int main(void)
+{
 
-		fgets(sen, 251, stdin);
-		int len = strlen(sen);
-		int ans = 0;
-		for (int i = 0; i < len; i++)
-		{
-			if ('a' <= find && find <= 'z')
-			{
-				if (sen[i] == find || sen[i] == find - 32)
-					ans++;
-			}
-		}
-		printf("%c %d\n", find, ans);
-	}
+	int K;
+	int Q;
+	int L;
+	int B;
+	int N;
+	int P;
+	scanf("%d %d %d  %d %d %d", &K, &Q, &L, &B, &N, &P);
 
+	printf("%d"
+		   "%2d"
+		   "%2d"
+		   "%2d"
+		   "%2d"
+		   "%2d",
+		   1 - K, 1 - Q, 2 - L, 2 - B, 2 - N, 8 - P);
+
+	return 0;
 }
