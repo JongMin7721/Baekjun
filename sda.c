@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void print_star(int n);
+void print_star(int n, int check);
 void p13star(int n);
 void p2star(int n);
 
@@ -15,18 +15,38 @@ int main(void)
         lg++;
     }
 
-    print_star(n);
+    print_star(n, 1);
 }
 
-void print_star(int n)
+void print_star(int n, int check)
 {
-    for (int i = 0; i < n; i++)
+    if (n == 1)
     {
-        if (n > 9)
+        if (check)
         {
-            print_star(n / 3);
+            printf("*");
+            return;
         }
-        p2star(n);
+        else
+        {
+            printf(" ");
+            return;
+        }
+    }
+
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (n - i == 2 && n - j == 2)
+            {
+                print_star(n / 3, 0);
+            }
+            else
+            {
+                print_star(n / 3, check);
+            }
+        }
         printf("\n");
     }
 }

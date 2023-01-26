@@ -15,4 +15,6 @@ int main(void)
     }
 
     printf("%lld\n", arr[n]);
+
+    return 0;
 }
