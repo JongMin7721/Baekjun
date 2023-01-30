@@ -2,11 +2,11 @@
 #include <stdlib.h>
 #define SWAP(X, Y, T) (T) = (X), (X) = (Y), (Y) = (T)
 
-int arr2[10], answer[8];
+int arr2[10];
 
 int static compare(const void *first, const void *second);
 int cut_sum(int n, int Bob, int Alice);
-int bestcase(int n, int Bob, int Alice)
+int bestcase(int n, int Bob, int Alice) // 줄세우기 고민
 {
     int ans_Bob, Bob2, ans_Alice = 0, pow = 1, cas = 0, tmp;
     ans_Bob = Bob2 = cut_sum(n, Bob, Alice);
@@ -36,16 +36,6 @@ int main(void)
             printf("%d", arr2[i]);
         }
         printf("\n");
-
-        if (cas == 2)
-        {
-            printf("answer : ");
-            for (int i = 0; i < n - 1; i++)
-            {
-                printf("%d", answer[i]);
-            }
-            printf("\n");
-        }
     }
 }
 
