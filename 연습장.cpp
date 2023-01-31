@@ -1,61 +1,61 @@
-#include <stdio.h>
 #include <iostream>
 using namespace std;
-
+int c[8];
+bool palndorm(int a)
+{
+	int count = 0;
+	while (true)
+	{
+		if (a < 1)
+		{
+			break;
+		}
+		c[count] = a % 10;
+		a = a / 10;
+		count++;
+	}
+	if (count == 1)
+	{
+		return true;
+	}
+	if (count % 2 == 0)
+	{
+		for (int i = 1; i < count / 2 + 1; i++)
+		{
+			if (c[i - 1] != c[count - i])
+			{
+				return false;
+			}
+		}
+	}
+	else
+	{
+		for (int i = 1; i < count / 2 - 1; i++)
+		{
+			if (c[i - 1] != c[count - i + 1])
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
 int main()
 {
-	int a = 0, b = 0, c = 0, prize = 0;
-
-	cin >> a >> b >> c;
-	if (a > 0 && a <= 6 && b > 0 && b <= 6 && c > 0 && c <= 6)
+	int a;
+	while (cin >> a)
 	{
-
-		if (a == b && b == c)
+		if (a == 0)
 		{
-			prize = 10000 + a * 1000;
+			break;
 		}
-
-		else if (a == b)
+		if (palndorm(a))
 		{
-			prize = 1000 + a * 100;
+			cout << "yes" << endl;
 		}
-		else if (b == c)
+		else
 		{
-			prize = 1000 + b * 100;
+			cout << "no" << endl;
 		}
-		else if (c == a)
-		{
-			prize = 1000 + c * 100;
-		}
-
-		else if (a != b && b != c && c != a)
-		{
-			if (a > b)
-			{
-				if (c > a)
-				{
-
-					prize = c * 100;
-				}
-				else if (c < a)
-				{
-					prize = a * 100;
-				}
-			}
-		}
-		
-		else if (b < a)
-		{
-			if (a > c)
-			{
-				prize = a * 100;
-			}
-			else if (c > a)
-			{
-				prize = c * 100;
-			}
-		}
-		cout << prize;
-		return 0;
 	}
 }
