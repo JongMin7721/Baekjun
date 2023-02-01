@@ -5,7 +5,7 @@
 int CoN(char money[1002], char count[1002], int len, int i);
 void division(char money[1002], char count[1002], char result[1002], int len, int i);
 
-int main(void)
+int main(void) // 다시
 {
     char money[1002], count[1002], result[1002] = {0};
     int mlen, len;

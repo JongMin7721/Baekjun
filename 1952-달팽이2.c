@@ -8,7 +8,7 @@ int main(void) // 알고리즘 다시 구상
 
     while (1)
     {
-        }
+    }
 
     printf("%d\n", turn);
 }
