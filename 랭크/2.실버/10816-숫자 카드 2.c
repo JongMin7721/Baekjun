@@ -31,6 +31,8 @@ int main(void)
     {
         printf("%d ", answer[i]);
     }
+
+    return 0;
 }
 
 int static compare(const void *first, const void *second)
@@ -45,18 +47,18 @@ int static compare(const void *first, const void *second)
 
 int BS(int arr1[], int key, int n)
 {
-    int start = 0, end = n, mid = end / 2, count = 1;
+    int start = 0, end = n, mid = end / 2, cnt1, cnt2;
 
-    while (arr1[mid] != key)
+    while (1)
     {
-        if (mid == start)
+        if (mid == end)
         {
-            return 0;
+            break;
         }
 
         if (arr1[mid] < key)
         {
-            start = mid;
+            start = mid + 1;
         }
         else
         {
@@ -66,16 +68,35 @@ int BS(int arr1[], int key, int n)
         mid = (start + end) / 2;
     }
 
-    while (arr1[mid - 1] == arr1[mid])
+    if (arr1[mid] != key)
     {
-        mid--;
+        return 0;
     }
 
-    while (arr1[mid] == arr1[mid + 1])
+    cnt1 = mid;
+
+    start = 0, end = n, mid = end / 2;
+
+    while (1)
     {
-        mid++;
-        count++;
+        if (mid == end)
+        {
+            break;
+        }
+
+        if (arr1[mid] <= key)
+        {
+            start = mid + 1;
+        }
+        else
+        {
+            end = mid;
+        }
+
+        mid = (start + end) / 2;
     }
 
-    return count;
+    cnt2 = mid;
+
+    return cnt2 - cnt1;
 }
