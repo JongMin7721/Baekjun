@@ -1,46 +1,55 @@
 #include <stdio.h>
+#include <string.h>
 
-int sigma(int n)
+int main(void)
 {
-	return n * (n + 1) / 2;
-}
+	int N, i = 0, len;
+	char num[10] = "666"; // 초기값 666설정
 
-int main()
-{
-	int nume[10000000];
-	int deno[10000000];
-	int idx = 0, i = 1;
-	int X;
-	scanf("%d", &X);
+	scanf("%d", &N);
 
-	while (1)
+	for (int j = 3; j < 10; j++)
 	{
-		if (sigma(i - 1) < X)
+		num[j] = '0'; // 그 외의 값 0으로 초기화
+	}
+
+	while (i != N) // N번째 찾기
+	{
+		len = strlen(num);
+
+		for (int j = 0; j < len - 2; j++) // 666이 있다면 갯수추가
 		{
-			if (X <= sigma(i))
+			if (num[j] == num[j + 1] && num[j + 1] == num[j + 2] && num[j] == '6')
 			{
-				idx = i;
+				i++;
 				break;
 			}
 		}
-		i++;
+
+		if (i == N) // N번째 찾으면 루프나가기
+		{
+			break;
+		}
+
+		num[0]++; // 1더하기
+
+		for (int j = 0; j < len; j++) // 자릿수 올림 9+1 = 10
+		{
+			if (num[j] == (10 + '0'))
+			{
+				num[j] -= 10;
+				num[j + 1]++;
+			}
+		}
 	}
 
-	for (int i = sigma(idx - 1) + 1; i <= sigma(idx); i++)
+	char res[10]; // 문제의 배열
+
+	for (i = 0; i < 10; i++) // 666000 -> 000666
 	{
-		if (idx % 2 == 0)
-		{
-			nume[i] = 1 + (i - sigma(idx - 1) - 1);
-			deno[i] = idx - (i - sigma(idx - 1) - 1);
-		}
-
-		else if (idx % 2 == 1)
-		{
-			nume[i] = idx - (i - sigma(idx - 1) - 1);
-			deno[i] = 1 + (i - sigma(idx - 1) - 1);
-		}
+		res[i] = num[9 - i];
 	}
 
-	printf("%d/%d", nume[X], deno[X]);
-	return 0;
+	printf("%s\n", res);
+	//00000006666660000000
 }
