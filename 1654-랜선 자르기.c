@@ -1,47 +1,56 @@
 #include <stdio.h>
-#define INT_MAX 2147483647
+
+int check(long mid, long cables[10000], long K, long N);
 
 int main(void)
 {
-    long K, N, cables[10000] = {0}, cnt, min = INT_MAX, max = 0;
+    long K, N, cables[10000] = {0}, start = 0, end = 0, mid;
 
-    scanf("%d %d", &K, &N);
+    scanf("%ld %ld", &K, &N);
 
     for (int i = 0; i < K; i++)
     {
-        scanf("%d", &cables[i]);
-        if (min > cables[i])
+        scanf("%ld", &cables[i]);
+        if (end < cables[i])
         {
-            min = cables[i];
+            end = cables[i];
+        }
+    }
+
+    while (start + 1 < end)
+    {
+        mid = (start + end) / 2;
+
+        if (check(mid, cables, K, N))
+        {
+            start = mid;
         }
         else
         {
-            max = cables[i];
+            end = mid;
         }
     }
 
-    if (K == N)
-    {
-        printf("%d\n", min);
-    }
-
-    while (1)
-    {
-        max--;
-
-        cnt = 0;
-        for (int i = 0; i < K; i++)
-        {
-            cnt += (cables[i] / max);
-        }
-
-        if (N == cnt)
-        {
-            break;
-        }
-    }
-
-    printf("%d\n", max);
+    printf("%ld\n", start);
 
     return 0;
+}
+
+int check(long mid, long cables[10000], long K, long N)
+{
+    int cab = 0;
+
+    for (int i = 0; i < K; i++)
+    {
+        cab += cables[i] / mid;
+    }
+
+    if (cab >= N)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
