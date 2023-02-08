@@ -1,24 +1,29 @@
 #include <stdio.h>
-int main()
+#include <string.h>
+int main(void)
 {
-	int A, B, C, D;
-	scanf("%d %d\n%d", &A, &B, &C);
-	if (B + C >= 60)
+	char s[1000001];
+	fgets(s, sizeof(s), stdin);
+	int a = strlen(s);
+	int cnt = 0;
+	int check = 0;
+	for (int i = 0; i < a; i++)
 	{
-		D = (B + C) / 60;
-
-		if (A + D < 23)
+		if (s[i] != ' ' && s[i + 1] == ' ') // 공백체크
 		{
-			printf("%d %d", A + D, B + C - (60 * D));
+			cnt++;
+			check++;
 		}
-		else if (A + D >= 23)
+		if (s[i] != ' ' && s[i + 1] == 10) // 공백체크
 		{
-			printf("%d %d", A + D - 24, B + C - (60 * D));
+			cnt++;
+			check++;
+		}
+		else
+		{
+			check = 0;
 		}
 	}
-	else
-	{
-		printf("%d %d", A, B + C);
-	}
+	printf("%d\n", cnt);
 	return 0;
 }

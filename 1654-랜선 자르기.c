@@ -38,7 +38,7 @@ int main(void)
 
 int check(long mid, long cables[10000], long K, long N)
 {
-    int cab = 0;
+    long cab = 0;
 
     for (int i = 0; i < K; i++)
     {
