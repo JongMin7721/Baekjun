@@ -13,7 +13,7 @@ int main(void)
         scanf("%ld", &cables[i]);
         if (end < cables[i])
         {
-            end = cables[i];
+            end = cables[i] + 1;
         }
     }
 
