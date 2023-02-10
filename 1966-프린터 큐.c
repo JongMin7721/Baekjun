@@ -12,7 +12,7 @@ void insert_Node(Node *set, int n, int i);
 int check_Node(Node *set, int imp);
 void prt_Node(Node *set, int i);
 
-int main(void)
+int main(void) // 16%
 {
     Node set;
     int T, N, M, k;
@@ -33,6 +33,8 @@ int main(void)
 
         prt_Node(&set, M);
     }
+
+    return 0;
 }
 
 void init(Node *set)

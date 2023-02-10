@@ -12,48 +12,10 @@ int cnt = 0;
 char res[100000];
 
 void init(Node *head);
-void push(Node *head, int num)
-{
-    if (num < seq)
-    {
-        return;
-    }
+void push(Node *head, int num);
+int pop(Node *head, int num);
 
-    Node *ptr = head->next;
-
-    while (num >= seq)
-    {
-        Node *newnode = (Node *)malloc(sizeof(Node));
-
-        newnode->next = head->next;
-        head->next = newnode;
-        newnode->n = seq;
-
-        res[cnt++] = '+';
-
-        seq++;
-    }
-}
-int pop(Node *head, int num)
-{
-    Node *ptr = head->next;
-    int n = ptr->n;
-
-    if (n != num)
-    {
-        return 1;
-    }
-
-    head->next = ptr->next;
-
-    free(ptr);
-
-    res[cnt++] = '-';
-
-    return 0;
-}
-
-int main(void)
+int main(void) // 3% segfault
 {
     int n, num, chk = 0;
     Node head;
@@ -83,6 +45,8 @@ int main(void)
     {
         printf("NO\n");
     }
+
+    return 0;
 }
 
 void init(Node *head)
@@ -91,4 +55,46 @@ void init(Node *head)
     head->next = NULL;
 
     return;
+}
+
+void push(Node *head, int num)
+{
+    if (num < seq)
+    {
+        return;
+    }
+
+    Node *ptr = head->next;
+
+    while (num >= seq)
+    {
+        Node *newnode = (Node *)malloc(sizeof(Node));
+
+        newnode->next = head->next;
+        head->next = newnode;
+        newnode->n = seq;
+
+        res[cnt++] = '+';
+
+        seq++;
+    }
+}
+
+int pop(Node *head, int num)
+{
+    Node *ptr = head->next;
+    int n = ptr->n;
+
+    if (n != num)
+    {
+        return 1;
+    }
+
+    head->next = ptr->next;
+
+    free(ptr);
+
+    res[cnt++] = '-';
+
+    return 0;
 }
