@@ -53,6 +53,8 @@ int main(void)
             printf("no\n");
         }
     }
+
+    return 0;
 }
 
 void init(Node *head)
