@@ -12,7 +12,7 @@ void insert_Node(Node *set, int n, int i);
 int check_Node(Node *set, int imp);
 void prt_Node(Node *set, int i);
 
-int main(void) // 16%
+int main(void)
 {
     Node set;
     int T, N, M, k;
@@ -39,7 +39,6 @@ int main(void) // 16%
 
 void init(Node *set)
 {
-    set->imp = set->num = 0;
     set->next = NULL;
 }
 
@@ -48,11 +47,11 @@ void insert_Node(Node *set, int n, int i)
     Node *newnode = (Node *)malloc(sizeof(Node));
     newnode->num = i;
     newnode->imp = n;
-    newnode->next = NULL;
 
     if (set->next == NULL)
     {
         set->next = newnode;
+        newnode->next = NULL;
         return;
     }
 
@@ -69,10 +68,11 @@ void insert_Node(Node *set, int n, int i)
 
 int check_Node(Node *set, int imp)
 {
-    while (set->next != NULL)
+    Node *pset = set;
+    while (pset->next != NULL)
     {
-        set = set->next;
-        if (set->imp > imp)
+        pset = pset->next;
+        if (pset->imp > imp)
         {
             return 1;
         }
@@ -83,7 +83,7 @@ int check_Node(Node *set, int imp)
 
 void prt_Node(Node *set, int i)
 {
-    int cnt = 0, num;
+    int cnt = 0, num = -1; // num 초기화를 안해 오류
     Node *ptr, *pptr;
 
     while (1)

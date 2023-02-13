@@ -1,36 +1,76 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
+
+int cmp(const void *left, const void *right)
+{
+	int *a = (int *)left;
+	int *b = (int *)right;
+	if (*a < *b)
+		return -1;
+	else if (*a > *b)
+		return 1;
+	else
+		return 0;
+}
+
+int lowerBound(int *card, int key, int size)
+{
+	int left = 0;
+	int right = size - 1;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (card[mid] <= key)
+			right = mid;
+		else
+			left = mid + 1;
+	}
+	return right;
+}
+
+int upperBound(int *card, int key, int size)
+{
+	int left = 0;
+	int right = size - 1;
+	while (left < right)
+	{
+		int mid = (left + right) / 2;
+		if (key < card[mid])
+			right = mid;
+		else
+			left = mid + 1;
+	}
+	if (card[right] == key)
+		return right + 1;
+	return right;
+}
+
 int main(void)
 {
-	char s[101];
-	int a, b;		// s 문자 갯수
-	int count1 = 0; // 2개짜리 c-,c=
-	int count2 = 0; // 3개짜리 dz=
-	fgets(s, sizeof(s), stdin);
-	a = strlen(s) - 1;
-	for (int i = 1; i < a; i++)
+	int N, M;
+	// 입력받음
+	scanf("%d", &N);
+	int card[N];
+	// 카드덱 생성
+	for (int i = 0; i < N; i++)
 	{
-		if (s[i] == '=')
-		{
-			if (s[i - 1] == 'z' && s[i - 2] == 'd')
-				count2++;
-			else if (s[i - 1] == 'z')
-				count1++;
-			else if (s[i - 1] == 'c' || s[i - 1] == 's')
-				count1++;
-		}
-		if (s[i] == '-')
-		{
-			if (s[i - 1] == 'd' || s[i - 1] == 'c')
-				count1++;
-		}
-		if (s[i] == 'j')
-		{
-			if (s[i - 1] == 'l' || s[i - 1] == 'n')
-				count1++;
-		}
+		scanf("%d", &card[i]);
 	}
-	b = (count1 * 2) + (count2 * 3);
-	printf("%d", (a - b) + count1 + count2);
+	scanf("%d", &M);
+	int key[M];
+	qsort(card, N, sizeof(int), cmp);
+	///
+	for (int i = 0; i < M; i++)
+	{
+		scanf("%d", &key[i]);
+	}
+	for (int i = 0; i < M; i++)
+	{
+		int searchNum = key[i];
+		int upper = upperBound(card, searchNum, N);
+		int lower = lowerBound(card, searchNum, N);
+		printf("%d ", upper - lower);
+	}
 	return 0;
 }
