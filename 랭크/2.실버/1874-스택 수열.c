@@ -9,13 +9,13 @@ typedef struct Node
 
 int seq = 1; // 순서
 int cnt = 0;
-char res[100000];
+char res[200005]; // 2개 숫자에 대해 ++-- 총4번 즉 입력최대의 2배의 배열 필요
 
 void init(Node *head);
 void push(Node *head, int num);
 int pop(Node *head, int num);
 
-int main(void) // 3% segfault
+int main(void)
 {
     int n, num, chk = 0;
     Node head;
