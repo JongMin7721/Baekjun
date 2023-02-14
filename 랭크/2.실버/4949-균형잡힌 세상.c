@@ -35,6 +35,10 @@ int main(void)
             else if (sen[i] == ')' || sen[i] == ']')
             {
                 chk = pop(&head, sen[i]);
+                if (!chk)
+                {
+                    break;
+                }
             }
         }
 

@@ -18,7 +18,7 @@ int main(void) // 1929번
 
     for (int i = m; i <= n; i++)
     {
-        if (nums[i])
+        if (!nums[i])
         {
             printf("%d\n", i);
         }
@@ -34,19 +34,16 @@ void eratos(int n)
         return;
     }
 
-    for (int i = 0; i < 1000001; i++)
-    {
-        nums[i] = 1;
-    }
-
     for (int i = 2; i * i <= n; i++)
     {
-        if (nums[i])
+        if (!nums[i])
         {
             for (long int j = i * i; j <= n; j += i)
             {
-                nums[j] = 0;
+                nums[j] = 1;
             }
         }
     }
+
+    return;
 }
