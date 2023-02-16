@@ -52,4 +52,6 @@ int main(void)
     }
 
     printf("%d %d\n", min_time, min_setpoint);
+
+    return 0;
 }
