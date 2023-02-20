@@ -12,6 +12,8 @@ int main(void)
     printf("%ld\n", pew(N));
 
     hanoi(N, 1, 3, 2);
+
+    return 0;
 }
 
 long pew(int N)
