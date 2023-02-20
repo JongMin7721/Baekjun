@@ -26,6 +26,8 @@ int main(void)
     }
 
     printf("%d\n", chk);
+
+    return 0;
 }
 
 void inp(int pass[4], char cha)

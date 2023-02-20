@@ -18,9 +18,9 @@ int compare(const void *a, const void *b)
 
 int myFind(int *arr, int left, int right, int n)
 {
-	int mid = (left + right) / 2;
+	int mid;
 
-	while (left < mid)
+	while (left < right)
 	{
 		mid = (left + right) / 2;
 
@@ -43,6 +43,8 @@ int myFind(int *arr, int left, int right, int n)
 
 int main()
 {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
 	int size, n;
 	cin >> size;
 
@@ -61,7 +63,7 @@ int main()
 	while (nCheck-- > 0)
 	{
 		cin >> n;
-		cout << myFind(arr, 0, size, n) << ' ';
+		cout << myFind(arr, 0, size, n) << '\n';
 	}
 
 	return 0;
