@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #define SWAP(X, Y, T) (T) = (X), (X) = (Y), (Y) = (T)
 
-int ans_Alice, max;
+int ans_Alice, max, max2;
 
 int static compare(const void *first, const void *second);
 int cut_sum(int n, int Bob);
 void per(char Alice[9], int depth, int r, int n, int Bob);
-int bestcase(int n, int Bob, char Alice[9]);
+void bestcase(int n, int Bob, char Alice[9]);
 
-int main(void)
+int main(void) // 2%
 {
     int T, n, Bob, cas;
     char Alice[9];
@@ -19,20 +19,18 @@ int main(void)
     for (int i = 0; i < T; i++)
     {
         scanf("%d\n%d\n%s", &n, &Bob, &Alice);
-        cas = bestcase(n, Bob, Alice);
+        bestcase(n, Bob, Alice);
         if (max == 0)
         {
-            for (int i = 0; i < n - 1; i++)
-            {
-                printf("%c", Alice[i]);
-            }
-            printf("\n");
+            printf("%d\n", max2 / 10);
         }
         else
         {
             printf("%d\n", max);
         }
     }
+
+    return 0;
 }
 
 int static compare(const void *first, const void *second)
@@ -62,8 +60,14 @@ int cut_sum(int n, int Bob)
 
 void per(char Alice[9], int depth, int r, int n, int Bob)
 {
+    char tmp;
     if (depth == r)
     {
+        if (max2 < atoi(Alice))
+        {
+            max2 = atoi(Alice);
+        }
+
         if (atoi(Alice) > max && atoi(Alice) < Bob)
         {
             max = atoi(Alice);
@@ -73,18 +77,15 @@ void per(char Alice[9], int depth, int r, int n, int Bob)
 
     for (int i = depth; i < n; i++)
     {
-        char tmp = Alice[depth];
-        Alice[depth] = Alice[i];
-        Alice[i] = tmp;
-
+        SWAP(Alice[depth], Alice[i], tmp);
         per(Alice, depth + 1, r, n, Bob);
-
-        Alice[i] = Alice[depth];
-        Alice[depth] = tmp;
+        SWAP(Alice[depth], Alice[i], tmp);
     }
+
+    return;
 }
 
-int bestcase(int n, int Bob, char Alice[9])
+void bestcase(int n, int Bob, char Alice[9])
 {
     int ans_Bob, Bob2, ans_Alice = 0, pow = 1, cas = 0, tmp, i;
     ans_Bob = Bob2 = cut_sum(n, Bob);
@@ -96,4 +97,6 @@ int bestcase(int n, int Bob, char Alice[9])
 
     max = 0;
     per(Alice, 0, n, n, ans_Bob);
+
+    return;
 }
