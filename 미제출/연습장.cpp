@@ -1,30 +1,34 @@
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
-	char ary[101];
-	scanf("%s", &ary);
-
-	int size = 0;
-	size = strlen(ary);
-
-	int cnt = 0;
-	if (size == 1)
-		printf("0\n");
-	for (int i = 1; i <= (size / 2); i++)
+	int mat[9][9];
+	for (int i = 0; i < 9; i++)
 	{
-		if (ary[size - i] == ary[i - 1])
+		for (int j = 0; j < 9; j++)
 		{
-			cnt++;
-			if (cnt == (size / 2))
-				printf("1\n");
-		}
-		else
-		{
-			printf("0\n");
-			break;
+			scanf("%d", &mat[i][j]);
 		}
 	}
+
+	int max = mat[0][0];
+	int a = -1;
+	int b = -1;
+	for (int i = 0; i < 9; i++)
+	{
+		for (int j = 0; j < 9; j++)
+		{
+			if (max < mat[i][j])
+			{
+				max = mat[i][j];
+				a = i + 1;
+				b = j + 1;
+			}
+		}
+	}
+
+	printf("%d\n", max);
+	printf("%d %d", a, b);
+
 	return 0;
 }

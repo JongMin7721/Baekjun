@@ -33,7 +33,7 @@ int main(void)
         turn++;
     }
 
-    printf("%d\n", turn);
+    printf("%d\n%d %d %d %d", turn, i, j, n, m);
 
     return 0;
 }
