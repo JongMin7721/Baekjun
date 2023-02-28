@@ -6,7 +6,7 @@
 typedef long long int ll;
 
 int compare(const void *first, const void *second);  // 비교
-ll hashing(ll rhash[], char word[], int len);        // 해싱 //15829-Hashing
+ll hashing(char word[], int len);                    // 해싱 //15829-Hashing //후 개선
 int find_hashing(ll rhash[], ll find_hash, int len); // 이분탐색
 
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
         scanf("%s", word);
         wordlen = strlen(word);
 
-        hash[i] = hashing(hash, word, wordlen);
+        hash[i] = hashing(word, wordlen);
     }
 
     qsort(hash, N, sizeof(hash[0]), compare);
@@ -32,7 +32,7 @@ int main(void)
         scanf("%s", word);
         wordlen = strlen(word);
 
-        find_hash = hashing(hash, word, wordlen);
+        find_hash = hashing(word, wordlen);
 
         if (find_hashing(hash, find_hash, N))
         {
@@ -55,23 +55,19 @@ int compare(const void *first, const void *second)
         return 0;
 }
 
-ll hashing(ll rhash[], char word[], int len)
+ll hashing(char word[], int len)
 {
     ll sum = 0, hash[500];
-    for (int i = 0; i < len; i++)
+    hash[0] = 1;
+    for (int i = 1; i < len; i++)
     {
-        hash[i] = 1;
+        hash[i] = (hash[i - 1] * 31) % DIV;
     }
 
-    hash[0] = word[0] - 'a' + 1;
+    hash[0] += word[0] - 'a';
 
     for (int i = 1; i < len; i++)
     {
-        for (int j = i; j < len; j++)
-        {
-            hash[j] = (hash[j] * 31) % DIV;
-        }
-
         hash[i] *= (word[i] - 'a' + 1);
         hash[i] %= DIV;
     }

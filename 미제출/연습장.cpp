@@ -1,34 +1,36 @@
-#include <stdio.h>
+#include <iostream>
+#include <vector>
+using namespace std;
 
 int main()
 {
-	int mat[9][9];
-	for (int i = 0; i < 9; i++)
+	int n, m;
+	cin >> n >> m;
+	vector<int> v(n + 1);
+	for (auto i = 1; i <= n; ++i)
+		v[i] = i;
+
+	for (auto t = 0; t < m; ++t)
 	{
-		for (int j = 0; j < 9; j++)
+		int i, j;
+		cin >> i >> j;
+
+		for (auto y = 0; y <= (j - i) / 2; ++y)
 		{
-			scanf("%d", &mat[i][j]);
+			int tmp;
+			tmp = v[i];
+			v[i] = v[j];
+			v[j] = tmp;
+			j--;
+			i++;
 		}
+
+		for (auto i = 1; i <= n; ++i)
+			cout << v[i] << " ";
+
+		cout << "\n";
 	}
 
-	int max = mat[0][0];
-	int a = -1;
-	int b = -1;
-	for (int i = 0; i < 9; i++)
-	{
-		for (int j = 0; j < 9; j++)
-		{
-			if (max < mat[i][j])
-			{
-				max = mat[i][j];
-				a = i + 1;
-				b = j + 1;
-			}
-		}
-	}
-
-	printf("%d\n", max);
-	printf("%d %d", a, b);
-
-	return 0;
+	for (auto i = 1; i <= n; ++i)
+		cout << v[i] << " ";
 }
