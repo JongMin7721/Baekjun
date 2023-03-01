@@ -4,7 +4,7 @@ typedef long long int ll;
 
 ll arr[31][31];
 
-ll comb();
+void comb();
 
 int main(void)
 {
@@ -21,9 +21,11 @@ int main(void)
 
         printf("%lld\n", arr[M][N]);
     }
+
+    return 0;
 }
 
-ll comb()
+void comb()
 {
     for (int i = 1; i <= 30; i++)
     {
@@ -33,6 +35,8 @@ ll comb()
             arr[j][i] = arr[j - 1][i] * j / (j - i);
         }
     }
+
+    return;
 }
 
 /*
