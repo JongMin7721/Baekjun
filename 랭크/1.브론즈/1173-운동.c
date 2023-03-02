@@ -34,4 +34,6 @@ int main(void)
     }
 
     printf("%d\n", time);
+
+    return 0;
 }
