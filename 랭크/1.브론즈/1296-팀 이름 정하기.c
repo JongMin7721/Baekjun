@@ -79,4 +79,6 @@ void cnt(char NAME[21], int LOVE[4])
             LOVE[3]++;
         }
     }
+
+    return;
 }
