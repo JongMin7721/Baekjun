@@ -1,8 +1,10 @@
 #include <stdio.h>
 
+int ccheck(int castle[50][50], int N, int M);
+
 int main(void)
 {
-    int N, M, castle[50][50];
+    int N, M, castle[50][50], max;
     char P;
 
     scanf("%d %d", &N, &M);
@@ -19,21 +21,6 @@ int main(void)
             else if (P == 'X')
             {
                 castle[i][j] = 1;
-                for (int k = 0; k < N; k++)
-                {
-                    if (castle[k][j] != 1)
-                    {
-                        castle[k][j] = 1;
-                    }
-                }
-
-                for (int k = 0; k < M; k++)
-                {
-                    if (castle[i][k] != 1)
-                    {
-                        castle[i][k] = 1;
-                    }
-                }
             }
         }
     }
@@ -47,42 +34,48 @@ int main(void)
     //     printf("\n");
     // }
 
-    int max = 0, cnt;
-    for (int i = 0; i < N; i++)
-    {
-        cnt = 0;
-        for (int j = 0; j < M; j++)
-        {
-            if (!castle[i][j])
-            {
-                cnt++;
-            }
-        }
-
-        if (max < cnt)
-        {
-            max = cnt;
-        }
-    }
-
-    for (int i = 0; i < M; i++)
-    {
-        cnt = 0;
-        for (int j = 0; j < N; j++)
-        {
-            if (!castle[j][i])
-            {
-                cnt++;
-            }
-        }
-
-        if (max < cnt)
-        {
-            max = cnt;
-        }
-    }
+    max = ccheck(castle, N, M);
 
     printf("%d\n", max);
 
     return 0;
+}
+
+int ccheck(int castle[50][50], int N, int M)
+{
+    int cnt = 0, sum, nn, mm;
+    for (int i = 0; i < N; i++)
+    {
+        sum = 0;
+        for (int j = 0; j < M; j++)
+        {
+            sum += castle[i][j];
+            if (sum)
+            {
+                cnt++;
+                break;
+            }
+        }
+    }
+
+    nn = N - cnt;
+    cnt = 0;
+
+    for (int j = 0; j < M; j++)
+    {
+        sum = 0;
+        for (int i = 0; i < N; i++)
+        {
+            sum += castle[i][j];
+            if (sum)
+            {
+                cnt++;
+                break;
+            }
+        }
+    }
+
+    mm = M - cnt;
+
+    return nn > mm ? nn : mm;
 }
