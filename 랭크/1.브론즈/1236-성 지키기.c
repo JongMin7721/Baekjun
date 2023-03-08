@@ -14,7 +14,7 @@ int main(void)
         for (int j = 0; j < M; j++)
         {
             scanf(" %c", &P);
-            if (P == '.' && castle[i][j] != 1)
+            if (P == '.')
             {
                 castle[i][j] = 0;
             }
@@ -43,14 +43,12 @@ int main(void)
 
 int ccheck(int castle[50][50], int N, int M)
 {
-    int cnt = 0, sum, nn, mm;
+    int cnt = 0, nn, mm;
     for (int i = 0; i < N; i++)
     {
-        sum = 0;
         for (int j = 0; j < M; j++)
         {
-            sum += castle[i][j];
-            if (sum)
+            if (castle[i][j])
             {
                 cnt++;
                 break;
@@ -63,11 +61,9 @@ int ccheck(int castle[50][50], int N, int M)
 
     for (int j = 0; j < M; j++)
     {
-        sum = 0;
         for (int i = 0; i < N; i++)
         {
-            sum += castle[i][j];
-            if (sum)
+            if (castle[i][j])
             {
                 cnt++;
                 break;
