@@ -23,6 +23,8 @@ int main(void)
 
         scanf("%d", &N);
     }
+
+    return 0;
 }
 
 int check_perfect(int N)
@@ -58,4 +60,6 @@ void sum(int N)
     }
 
     printf("\n");
+
+    return;
 }
