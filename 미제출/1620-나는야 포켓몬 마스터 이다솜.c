@@ -4,18 +4,9 @@
 
 char dic[100000][21];
 
-int find_dic(char *ans, int N)
-{
-    for (int i = 0; i < N; i++)
-    {
-        if (!strcmp(ans, dic[i]))
-        {
-            return i;
-        }
-    }
-}
+int find_dic(char *ans, int N);
 
-int main(void)
+int main(void) // 8% timeover
 {
     int N, M, num;
     char ans[21];
@@ -43,4 +34,17 @@ int main(void)
     }
 
     return 0;
+}
+
+int find_dic(char *ans, int N)
+{
+    for (int i = 0; i < N; i++)
+    {
+        if (!strcmp(ans, dic[i]))
+        {
+            return i;
+        }
+    }
+
+    return -1;
 }
