@@ -2,9 +2,31 @@
 #include <stdlib.h>
 #include <string.h>
 
-char dic[100000][21];
+typedef struct Dictionary
+{
+    char name[21];
+    int num;
+} Dictionary;
+
+Dictionary dic[100000];
 
 int find_dic(char *ans, int N);
+int compare(const void *m, const void *n)
+{
+    Dictionary *dic1 = (Dictionary *)m;
+    Dictionary *dic2 = (Dictionary *)n;
+
+    if (strcmp(dic1->name, dic2->name) > 0)
+    {
+        return 1;
+    }
+    else if (strcmp(dic1->name, dic2->name) < 0)
+    {
+        return -1;
+    }
+    else
+        return 0;
+}
 
 int main(void) // 8% timeover
 {
@@ -40,7 +62,7 @@ int find_dic(char *ans, int N)
 {
     for (int i = 0; i < N; i++)
     {
-        if (!strcmp(ans, dic[i]))
+        if (!strcmp(ans, dic[i].name))
         {
             return i;
         }
