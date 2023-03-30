@@ -79,4 +79,6 @@ void prt_max(int A, int B, int G)
             printf("%d\nGoran\n", G);
         }
     }
+
+    return;
 }
