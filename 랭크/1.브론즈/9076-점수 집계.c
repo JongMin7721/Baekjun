@@ -64,4 +64,6 @@ int check_score(int score[5])
     {
         return score[1] + score[2] + score[3];
     }
+
+    return 0;
 }
