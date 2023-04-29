@@ -1,127 +1,157 @@
 <!DOCTYPE html>
+
 <head>
-    <style>
-        body {
-            background-color: #efe5d0;
-            font-family: Arial, "Trebuchet MS", sans-serif;
-            margin: 0px;
-        }
-
-        h1 > span {
-            color : red;
-        }
-
-        header {
-            background-color: #e3afed;
-            color: #000000;
-            margin: 0px;
-            text-align: center;
-            padding: 5px;
-        }
-
-        nav{
-            float :left;
-            display: table-cell;
-            background-color: #ffd800;
-            padding: 15px;
-        }
-
-        section#main{
-            display: table-cell;
-            background-color: yellow;
-        }
-
-        footer {
-            clear:both;
-            background-color: #954b4b;
-            color: #efe5d0;
-            text-align: center;
-            padding: 10px;
-            margin: 0px 0px 0px 0px;
-            font-size: 90%;
-        }
-
-        div#nav {
-            border-top: 1px solid red;
-            border-bottom: 1px solid red;
-            text-align: justify;
-            padding: 20px 0;
-            font-size: 30px;
-            height: max-content;
-        }
-
-        a:link {
-            display: block;
-            padding: 10px 20px;
-            text-decoration: none;
-            letter-spacing: 10px;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .tab-content {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./c.css">
 </head>
+
 <body>
     <header>
-        <h1>My <span>Homepage</span></h1> 
+        <h1><span>Valorant</span> Information</h1>
     </header>
-    <nav>
+    <nav class="nav-main">
         <div id="nav">
-            <dl>
-                <a href="#" onclick="showList('tab1')">Home</a>
-                <div id="tab1" class="tab-content">
-                    <a href="#" class="tab-list" onclick="showTab()">list1</a>
-                </div>
-                <a href="#" onclick="showList('tab2')">Usage</a>
-                <div id="tab2" class="tab-content">
-                </div>
-                <a href="#" onclick="showList('tab3')">List</a>
-                <div id="tab3" class="tab-content">
-                </div>
-            </dl>
-            
+            <a href="#" onclick="showList('list1')">Valorant</a>
+            <div id="list1" class="tab-list">
+                <a href="#" onclick="showTab('tab1')">Overview</a>
+                <a href="#" onclick="showTab('tab2')">Characteristics</a>
+                <a href="#" onclick="showTab('tab3')">System<br>Requirements</a>
+            </div>
+            <a href="#" onclick="showList('list2')">Agent</a>
+            <div id="list2" class="tab-list">
+                <a href="#" onclick="showTab('tab1')">list1</a>
+                <a href="#" onclick="showTab('tab2')">list2</a>
+                <a href="#" onclick="showTab('tab3')">list3</a>
+            </div>
+            <a href="#" onclick="showList('list3')">Weapons</a>
+            <div id="list3" class="tab-list">
+                <a href="#" onclick="showTab('tab1')">list1</a>
+                <a href="#" onclick="showTab('tab2')">list2</a>
+                <a href="#" onclick="showTab('tab3')">list3</a>
+            </div>
+            <a href="#" onclick="showList('list4')">Maps</a>
+            <div id="list4" class="tab-list">
+                <a href="#" onclick="showTab('tab1')">list1</a>
+                <a href="#" onclick="showTab('tab2')">list2</a>
+                <a href="#" onclick="showTab('tab3')">list3</a>
+            </div>
         </div>
     </nav>
+
     <section id="main">
-        <!-- <div id="tab1" class="tab-content">
-            <h2>첫 번째 탭</h2>
-            <p>첫 번째 탭의 내용을 여기에 작성합니다.</p>
+        <div id="li1">
+            <div id="tab1" class="tab-content">
+                <h2>개요</h2>
+                <p>정밀한 실력 자랑, 굉장한 전리품, 숨 막히는 게임플레이와 짜릿한 경험까지. 모두 발로란트에서 무료로 즐길 수 있습니다. 발로란트에서는 각각 다섯 명으로 이루어진 공격팀과 수비팀이 25라운드 13선승제로 총격전을
+                벌입니다. 무엇보다 투명하고 공정한 게임플레이가 중요한 게임이기 때문에, 라이엇 게임즈에서는 발로란트를 위해 투자를 아끼지 않고 전례 없이 뛰어난 백엔드 시스템을 구축했습니다. 이 시스템은 전용 128틱 서버, 맞춤
+                제작 넷코드, 서버 권한 게임 아키텍처, 특유의 부정행위 방지 기능 등을 자랑합니다.</p>
+            </div>
+            <div id="tab2" class="tab-content">
+                <h2>특징</h2>
+                <p>기본적으로 CS:GO과 동일한 시스템[20]에 오버워치처럼 다른 능력을 지닌 요원을 추가했다 하지만 오버워치와는 다르게 대부분의 스킬은 적을 잡는 것을 도와주는데에 초점이 맞춰져 있고 스킬 단독으로는 적을 잡기 매우
+                어렵다.[21] 또한 체력도 모든 요원이 100으로 통일되어있는데 반해 총기의 대미지는 상당히 높아[22] 교전이 상당히 짧은 편이다. 게다가 힐링 스킬은 일부 요원만 가지고 있는데다 아군을 힐링하는 스킬은 세이지의
+                회복구슬과 스카이의 재생 단 두개뿐이다.
+                
+                위 특징때문에 발로란트는 소위 "총만 잘 쏘면 홀로 캐리가 가능한 게임"중 하나이다. 스킬을 전혀 사용하지 않아도 교전에는 큰 문제가 없는데다 그 스킬들도 적들의 위치를 단편적으로 보여주거나 연막을 치는 등 당장 눈
+                앞의 적을 잡는 데에는 쓸모가 없는 스킬이 대부분이다. 궁극기와 스킬 연계가 중요한 오버워치와는 사뭇 다른 양상을 띤다. 당장 발로란트 유튜버들만 봐도 에찍누[23]로 이기는 모습이 종종 보인다.
+                
+                다만 스킬의 비중이 그닥 적은 게임이라 할수도 없다. 연막과 시야 확보는 레인보우 식스 시즈에서의 선례가 그렇듯 교전이 짧은 FPS에선 존재만 한다면 게임의 판도를 뒤집는 상황이 나오기도 하며 스킬들에 달려 있는
+                강력한 CC기나 딜은 실력과 관계없이 본인이 우위를 점하기 쉽게 만들어준다. 따라서 캐쥬얼해 보이지만 에임과 스킬 활용 모두 받쳐줘야 하는 나름 진입 장벽이 있는 게임.</p>
+            </div>
+            <div id="tab3" class="tab-content">
+                <h2>시스템 요구 사항</h2>
+                <p>그래픽을 희생하여 최신 게임에 비해 훨씬 낮은 사양(최소 GTX 700 이상)을 요구한다. 컴퓨터 사양에 구애받지 않고 모든 유저들이 게임을 즐길 수 있게끔 하는 의도로 보이지만 현재로써는 게임의 발적화 문제로 인한
+                지속적인 프레임 하락과 프레임에 따라 달라지는 총기의 연사속도 등의 문제점 때문에 불편을 호소하는 유저들이 많다. 적어도 게임을 쾌적하게 돌리기 위해서는 권장사양 이상의 장비 사양을 요구한다. 이외 Windows
+                11 이상부터는 추가로 TPM 2.0과 Secure Boot를 필수로 요구한다.</p>
+                <table>
+                    <tr>
+                        <th colspan="4">
+                            시스템 요구 사항
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>구분</th>
+                        <th>최소 사양<br>(30fps)</th>
+                        <th>권장 사양<br>(60fps)</th>
+                        <th>최고 사양<br>(144fps)</th>
+                    </tr>
+                    <tr>
+                        <td>프로세서</td>
+                        <td>Intel Core 2 Duo E8400</td>
+                        <td>Intel i3-4150</td>
+                        <td>Intel Core i5-4460 3.2GHz</td>
+                    </tr>
+                    <tr>
+                        <td>그래픽 카드</td>
+                        <td>Intel HD 4000</td>
+                        <td>NVIDIA Geforce GT 730</td>
+                        <td>NVIDIA GTX 1050 Ti</td>
+                    </tr>
+                    <tr>
+                        <td>램</td>
+                        <td>4GB</td>
+                        <td>6GB</td>
+                        <td>8GB</td>
+                    </tr>
+                    <tr>
+                        <td>그래픽 카드 램</td>
+                        <td colspan="3">최소 1GB</td>
+                    </tr>
+                    <tr>
+                        <td>용량</td>
+                        <td colspan="3">최소 20GB 이상</td>
+                    </tr>
+                    <tr>
+                        <td>운영체제</td>
+                        <td colspan="3">윈도우 7/8/10 64-bit</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <div id="tab2" class="tab-content">
-            <h2>두 번째 탭</h2>
-            <p>두 번째 탭의 내용을 여기에 작성합니다.</p>
+        <div id="li2">
+            <div id="tab4" class="tab-content">
+                <h2>첫 번째 탭</h2>
+                <p>첫 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+            <div id="tab2" class="tab-content">
+                <h2>두 번째 탭</h2>
+                <p>두 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+            <div id="tab3" class="tab-content">
+                <h2>세 번째 탭</h2>
+                <p>세 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
         </div>
-        <div id="tab3" class="tab-content">
-            <h2>세 번째 탭</h2>
-            <p>세 번째 탭의 내용을 여기에 작성합니다.</p>
-        </div> -->
+        <div id="li3">
+            <div id="tab1" class="tab-content">
+                <h2>첫 번째 탭</h2>
+                <p>첫 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+            <div id="tab2" class="tab-content">
+                <h2>두 번째 탭</h2>
+                <p>두 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+            <div id="tab3" class="tab-content">
+                <h2>세 번째 탭</h2>
+                <p>세 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+        </div>
+        <div id="li4">
+            <div id="tab1" class="tab-content">
+                <h2>첫 번째 탭</h2>
+                <p>첫 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+            <div id="tab2" class="tab-content">
+                <h2>두 번째 탭</h2>
+                <p>두 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+            <div id="tab3" class="tab-content">
+                <h2>세 번째 탭</h2>
+                <p>세 번째 탭의 내용을 여기에 작성합니다.</p>
+            </div>
+        </div>
     </section>
     <footer>
-        밑에 뭐시기 뭐시기 블라블라
+        밑에 뭐시기 뭐시기 블라블라 쇼류에게돈
     </footer>
-    <script>
-        function showList(tabName) {
-            var i;
-            var tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].style.display = "none";
-            }
-            document.getElementById(tabName).style.display = "block";
-        }
-
-        function showTab(tabName) {
-                var i;
-                var tabContent = document.getElementsByClassName("tab-list");
-                for (i = 0; i < tabContent.length; i++) {
-                    tabContent[i].style.display = "none";
-                }
-                document.getElementById(tabName).style.display = "block";
-            }
-        showTab('tab1');
-    </script>
+    <script src="j.js"></script>
 </body>
