@@ -5,7 +5,7 @@ def GCD(a, b):
 
 n = int(input())
 m = []
-count = 0
+count, cc = 0, 0
 
 for i in range(n):
     m.append(int(input()))
@@ -17,13 +17,8 @@ l = m[1] - m[0]
 for i in range(len(m) - 1):
     l = GCD(m[i + 1] - m[i], l)
     
-i, cc = 0, m[0]
-while(cc != m[-1]):
-    if(cc == m[i]):
-        i += 1
-        cc += l
-    else:
-        count += 1
-        cc += l
+for i in range(1, len(m)):
+    count += (m[i] - m[i-1]) / l - 1
+    
 
 print(int(count))
