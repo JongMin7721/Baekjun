@@ -1,24 +1,19 @@
-def GCD(a, b):
-    while b != 0:
-        a, b = b, a%b
-    return a
+from langchain import Chain
 
-n = int(input())
-m = []
-count, cc = 0, 0
+# Create a new chain
+chain = Chain()
 
-for i in range(n):
-    m.append(int(input()))
-    
-m.sort()
+# Define the chat system
+@chain.register
+def chat_system(message):
+    if message == "hello":
+        return "Hi there!"
+    elif message == "how are you?":
+        return "I'm good, thanks for asking!"
+    elif message == "bye":
+        return "Goodbye!"
+    else:
+        return "Sorry, I didn't understand that."
 
-l = m[1] - m[0]
-
-for i in range(len(m) - 1):
-    l = GCD(m[i + 1] - m[i], l)
-    
-for i in range(1, len(m)):
-    count += (m[i] - m[i-1]) / l - 1
-    
-
-print(int(count))
+# Start the chat system
+chain.start()
